@@ -69,12 +69,13 @@
 .dies {
   grid-column: 1 / -1;
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
   margin-top: 12px;
 }
 
 .dia {
-  width: 55px;
+  min-width: 55px;
   height: 42px;
   border: none;
   border-radius: 8px;
@@ -130,6 +131,7 @@
 .agenda-info h3 {
   font-size: 17px;
   margin-bottom: 10px;
+  color: #111827;
 }
 
 .agenda-info p {
@@ -166,8 +168,12 @@
   color: #ef3b4f;
 }
 
-.ocult {
-  display: none;
+.missatge-buit {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  color: #6b7280;
+  text-align: center;
 }
 
 @media (max-width: 900px) {
@@ -181,9 +187,5 @@
 
   .agenda-grid {
     grid-template-columns: 1fr;
-  }
-
-  .dies {
-    flex-wrap: wrap;
   }
 }
