@@ -31,30 +31,21 @@
 
   <aside class="panel-live">
     <div class="panel-header">
-      <h1>Les Santes Live</h1>
-      <span>LIVE</span>
+      <div>
+        <h1>Les Santes Live</h1>
+        <span>LIVE</span>
+      </div>
       <p>MATARÓ EN DIRECTE</p>
     </div>
 
-    <button class="activitat activa" data-activitat="ara">
-      <strong>ACTES ARA</strong>
-      <small>Plaça Santa Anna</small>
-    </button>
+    <div class="filtre-dia-geo">
+      <label>Filtrar per dia</label>
+      <select id="filtreDiaGeo">
+        <option value="tots">Tots els dies</option>
+      </select>
+    </div>
 
-    <button class="activitat" data-activitat="cercavila">
-      <strong>CERCAVILA</strong>
-      <small>Can Marfà - Gènere de Punt</small>
-    </button>
-
-    <button class="activitat" data-activitat="castells">
-      <strong>CASTELLS</strong>
-      <small>Plaça Santa Anna</small>
-    </button>
-
-    <button class="activitat" data-activitat="nitboja">
-      <strong>NIT BOJA</strong>
-      <small>Ajuntament de Mataró</small>
-    </button>
+    <div id="llistaActivitatsGeo" class="llista-activitats"></div>
 
     <a href="agenda.html" class="btn-agenda">VEURE AGENDA SENCERA</a>
 
@@ -66,7 +57,7 @@
 
   <div id="mapGeo"></div>
 
-  <button id="centrarMapa" class="btn-centrar">⌖ Centrar mapa</button>
+  <button id="centrarMapa" class="btn-centrar">⌖ CENTRAR MAPA</button>
 
 </main>
 
