@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geolocalització | Les Santes</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/geolocalitzacio.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="index.html" class="logo">Les Santes</a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <ul class="menu" id="menu">
+      <li><a href="agenda.html">Agenda d'actes</a></li>
+      <li><a href="minisantes.html">MiniSantes</a></li>
+      <li><a href="galeria.html">Galeria de fotos i imatges</a></li>
+      <li><a href="on-ens-trobem.html">On ens trobem</a></li>
+      <li><a href="geolocalitzacio.html" class="actiu">Geolocalització</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="geo-page">
+
+  <aside class="panel-live">
+    <div class="panel-header">
+      <h1>Les Santes Live</h1>
+      <span>LIVE</span>
+      <p>MATARÓ EN DIRECTE</p>
+    </div>
+
+    <button class="activitat activa" data-activitat="ara">
+      <strong>ACTES ARA</strong>
+      <small>Plaça Santa Anna</small>
+    </button>
+
+    <button class="activitat" data-activitat="cercavila">
+      <strong>CERCAVILA</strong>
+      <small>Can Marfà - Gènere de Punt</small>
+    </button>
+
+    <button class="activitat" data-activitat="castells">
+      <strong>CASTELLS</strong>
+      <small>Plaça Santa Anna</small>
+    </button>
+
+    <button class="activitat" data-activitat="nitboja">
+      <strong>NIT BOJA</strong>
+      <small>Ajuntament de Mataró</small>
+    </button>
+
+    <a href="agenda.html" class="btn-agenda">VEURE AGENDA SENCERA</a>
+
+    <div class="panel-footer">
+      <span>⚙ Configuració</span>
+      <span>ⓘ Ajuda</span>
+    </div>
+  </aside>
+
+  <div id="mapGeo"></div>
+
+  <button id="centrarMapa" class="btn-centrar">⌖ Centrar mapa</button>
+
+</main>
+
+<footer>
+  <div class="footer-contingut">
+    <div>
+      <h3>Les Santes</h3>
+      <p>
+        La Festa Major de Mataró, declarada Festa de patrimoni d’interès nacional.
+        Del 24 al 29 de juliol.
+      </p>
+    </div>
+
+    <div>
+      <h4>Links d’interès</h4>
+      <a href="#">Ajuntament de Mataró</a>
+      <a href="#">Cultura Mataró</a>
+      <a href="#">Protecció Civil</a>
+    </div>
+
+    <div>
+      <h4>Xarxes Socials</h4>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+
+  <p class="copyright">© 2024 Les Santes de Mataró. Tots els drets reservats.</p>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="js/geolocalitzacio.js"></script>
+
+</body>
+</html>

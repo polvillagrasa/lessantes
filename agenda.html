@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda d'Actes | Les Santes</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/agenda.css">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="index.html" class="logo">Les Santes</a>
+
+    <button class="menu-btn" id="menuBtn">☰</button>
+
+    <ul class="menu" id="menu">
+      <li><a href="agenda.html" class="actiu">Agenda d'actes</a></li>
+      <li><a href="minisantes.html">MiniSantes</a></li>
+      <li><a href="galeria.html">Galeria de fotos i imatges</a></li>
+      <li><a href="on-ens-trobem.html">On ens trobem</a></li>
+      <li><a href="geolocalitzacio.html">Geolocalització</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="agenda-page">
+
+  <section class="agenda-header">
+    <h1>Agenda d'Actes</h1>
+    <p>Descobreix tot el que passarà a Mataró</p>
+  </section>
+
+  <section class="filtres">
+    <div class="camp">
+      <label>DATA</label>
+      <select id="selectData">
+        <option value="tots">Selecciona una data</option>
+        <option value="24">24 Juliol</option>
+        <option value="25">25 Juliol</option>
+        <option value="26">26 Juliol</option>
+        <option value="27">27 Juliol</option>
+        <option value="28">28 Juliol</option>
+        <option value="29">29 Juliol</option>
+      </select>
+    </div>
+
+    <div class="camp cerca">
+      <label>CERCA</label>
+      <input type="text" id="inputCerca" placeholder="Quin acte busques?">
+    </div>
+
+    <button class="btn-filtrar" id="btnFiltrar">Filtrar</button>
+    <button class="btn-cerca" id="btnCerca">Cerca Acte</button>
+
+    <div class="dies">
+      <button data-dia="24" class="dia actiu">24</button>
+      <button data-dia="25" class="dia">25</button>
+      <button data-dia="26" class="dia">26</button>
+      <button data-dia="27" class="dia">27</button>
+      <button data-dia="28" class="dia">28</button>
+      <button data-dia="29" class="dia">29</button>
+    </div>
+  </section>
+
+  <section class="dia-section" data-dia="24">
+    <h2>24 Juliol</h2>
+
+    <div class="agenda-grid">
+      <article class="agenda-card">
+        <img src="img/gegants2.jpeg" alt="Gegantada">
+        <span class="categoria verd">Cultura popular</span>
+        <div class="agenda-info">
+          <h3>Gegantada</h3>
+          <p>◷ 18:00h</p>
+          <p>📍 Diversos indrets</p>
+        </div>
+      </article>
+
+      <article class="agenda-card">
+        <img src="img/gospel.jpeg" alt="GospelSons">
+        <span class="categoria lila">Nit d'estiu</span>
+        <div class="agenda-info">
+          <h3>GospelSons</h3>
+          <p>◷ 20:00h</p>
+          <p>📍 Passeig del Callao</p>
+        </div>
+      </article>
+
+      <article class="agenda-card">
+        <img src="img/havaneres.jpeg" alt="Havaneres i rom cremat">
+        <span class="categoria vermell">Acte destacat</span>
+        <div class="agenda-info">
+          <h3>Havaneres i rom cremat</h3>
+          <p>◷ 22:00h</p>
+          <p>📍 Passeig del Callao</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="dia-section" data-dia="25">
+    <h2>25 Juliol</h2>
+
+    <div class="agenda-grid">
+      <article class="agenda-card">
+        <img src="img/castellera.jpeg" alt="Diada Castellera">
+        <div class="agenda-info">
+          <h3>Diada Castellera</h3>
+          <p>◷ 12:00h</p>
+          <p>📍 Plaça de Santa Anna</p>
+        </div>
+      </article>
+
+      <article class="agenda-card">
+        <img src="img/concerts2.jpeg" alt="Concert de Festa Major">
+        <span class="categoria lila">Nit d'estiu</span>
+        <div class="agenda-info">
+          <h3>Concert de Festa Major</h3>
+          <p>◷ 22:30h</p>
+          <p>📍 Escenari de la Platja</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="dia-section" data-dia="26">
+    <h2>26 Juliol</h2>
+
+    <div class="agenda-grid">
+      <article class="agenda-card">
+        <img src="img/correfoc2.jpeg" alt="Correfoc">
+        <span class="categoria verd">Cultura popular</span>
+        <div class="agenda-info">
+          <h3>Correfoc</h3>
+          <p>◷ 21:00h</p>
+          <p>📍 Carrers del Centre</p>
+        </div>
+      </article>
+
+      <article class="agenda-card">
+        <img src="img/concerts3.jpeg" alt="Ball de Festa Major">
+        <span class="categoria lila">Nit d'estiu</span>
+        <div class="agenda-info">
+          <h3>Ball de Festa Major</h3>
+          <p>◷ 23:30h</p>
+          <p>📍 Parc Central</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-contingut">
+    <div>
+      <h3>Les Santes</h3>
+      <p>
+        La Festa Major de Mataró, declarada Festa de patrimoni d’interès nacional.
+        Del 24 al 29 de juliol.
+      </p>
+    </div>
+
+    <div>
+      <h4>Links d’interès</h4>
+      <a href="#">Ajuntament de Mataró</a>
+      <a href="#">Cultura Mataró</a>
+      <a href="#">Protecció Civil</a>
+    </div>
+
+    <div>
+      <h4>Xarxes Socials</h4>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+
+  <p class="copyright">© 2024 Les Santes de Mataró. Tots els drets reservats.</p>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="js/agenda.js"></script>
+</body>
+</html>
+
+

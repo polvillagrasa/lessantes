@@ -1,0 +1,291 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f5f5;
+  color: #111827;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  background-color: #18385f;
+}
+
+.navbar {
+  max-width: 1100px;
+  margin: auto;
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 45px;
+}
+
+.menu a {
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  color: #f3b400;
+}
+
+.menu-btn {
+  display: none;
+}
+
+.hero {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 0 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.hero h1 {
+  color: #c82127;
+  font-size: 62px;
+  line-height: 1;
+}
+
+.hero h2 {
+  color: #1558ff;
+  font-size: 28px;
+  margin: 15px 0 25px;
+}
+
+.hero p {
+  color: #4b5563;
+  margin-bottom: 35px;
+}
+
+.botons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 15px 28px;
+  border-radius: 6px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.btn-fosc {
+  background-color: #1f2f45;
+  color: white;
+}
+
+.btn-groc {
+  background-color: #f3b400;
+  color: #111827;
+}
+
+.btn-blanc {
+  background-color: white;
+  color: #df2429;
+}
+
+.hero-img img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 18px 35px rgba(0,0,0,0.2);
+}
+
+.activitats {
+  max-width: 1100px;
+  margin: auto;
+  padding-bottom: 60px;
+}
+
+.titol-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.titol-section h2 {
+  font-size: 28px;
+}
+
+.titol-section a {
+  color: #1558ff;
+  font-weight: bold;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 14px;
+  position: relative;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+.card img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.categoria {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.verd {
+  background-color: #00b894;
+}
+
+.lila {
+  background-color: #6d28d9;
+}
+
+.card-info {
+  padding: 18px 5px 5px;
+}
+
+.card-info h3 {
+  margin-bottom: 8px;
+}
+
+.card-info p {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.participa {
+  background-color: #df2429;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.participa h2 {
+  font-size: 44px;
+  margin-bottom: 25px;
+}
+
+.participa p {
+  max-width: 650px;
+  margin: 0 auto 30px;
+}
+
+footer {
+  background-color: #18385f;
+  color: white;
+  padding: 60px 0 35px;
+}
+
+.footer-contingut {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 70px;
+}
+
+footer p,
+footer a {
+  color: rgba(255,255,255,0.65);
+  font-size: 13px;
+}
+
+footer a {
+  display: block;
+  margin-top: 10px;
+}
+
+.copyright {
+  max-width: 1100px;
+  margin: 40px auto 0;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    background-color: #142d4d;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .menu.actiu {
+    display: flex;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 50px 20px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .activitats {
+    padding: 40px 20px;
+  }
+
+  .footer-contingut {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+}

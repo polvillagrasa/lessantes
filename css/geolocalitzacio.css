@@ -1,0 +1,149 @@
+.geo-page {
+  position: relative;
+  height: 740px;
+  overflow: hidden;
+}
+
+#mapGeo {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.panel-live {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 245px;
+  background: white;
+  border-radius: 10px;
+  padding: 24px;
+  z-index: 999;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.18);
+}
+
+.panel-header h1 {
+  font-size: 20px;
+  color: #18385f;
+  display: inline-block;
+}
+
+.panel-header span {
+  background: #ef3b4f;
+  color: white;
+  font-size: 10px;
+  padding: 4px 7px;
+  border-radius: 12px;
+  margin-left: 6px;
+}
+
+.panel-header p {
+  font-size: 11px;
+  color: #64748b;
+  margin: 5px 0 22px;
+}
+
+.activitat {
+  width: 100%;
+  border: none;
+  background: #f8fafc;
+  margin-bottom: 12px;
+  padding: 14px;
+  border-radius: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.activitat strong {
+  display: block;
+  color: #18385f;
+  font-size: 13px;
+}
+
+.activitat small {
+  color: #64748b;
+  font-size: 11px;
+}
+
+.activitat.activa,
+.activitat:hover {
+  background: #ef3b4f;
+}
+
+.activitat.activa strong,
+.activitat.activa small,
+.activitat:hover strong,
+.activitat:hover small {
+  color: white;
+}
+
+.btn-agenda {
+  display: block;
+  background: #ef3b4f;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 35px;
+}
+
+.panel-footer {
+  display: flex;
+  justify-content: space-between;
+  color: #94a3b8;
+  font-size: 10px;
+  margin-top: 22px;
+}
+
+.btn-centrar {
+  position: absolute;
+  right: 40px;
+  bottom: 55px;
+  z-index: 999;
+  background: white;
+  border: none;
+  padding: 18px 28px;
+  border-radius: 8px;
+  color: #18385f;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+}
+
+.menu .actiu {
+  color: #ef3b4f;
+}
+
+.leaflet-popup-content h3 {
+  margin-bottom: 6px;
+  color: #18385f;
+}
+
+.leaflet-popup-content a {
+  display: inline-block;
+  margin-top: 8px;
+  background: #ef3b4f;
+  color: white;
+  padding: 7px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .geo-page {
+    height: 850px;
+  }
+
+  .panel-live {
+    width: calc(100% - 40px);
+    left: 20px;
+    top: 20px;
+  }
+
+  .btn-centrar {
+    right: 20px;
+    bottom: 25px;
+  }
+}

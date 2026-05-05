@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>On ens trobem | Les Santes</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/onens.css">
+
+<!-- LEAFLET -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+</head>
+<body>
+
+<header>
+<nav class="navbar">
+
+<a href="index.html" class="logo">Les Santes</a>
+
+<button class="menu-btn" id="menuBtn">☰</button>
+
+<ul class="menu" id="menu">
+<li><a href="agenda.html">Agenda d'actes</a></li>
+<li><a href="minisantes.html">MiniSantes</a></li>
+<li><a href="galeria.html">Galeria de fotos i imatges</a></li>
+<li><a href="on-ens-trobem.html" class="actiu">On ens trobem</a></li>
+<li><a href="geolocalitzacio.html">Geolocalització</a></li>
+</ul>
+
+</nav>
+</header>
+
+<main class="onens-page">
+
+<section class="header">
+<h1>On ens trobem</h1>
+<p>Localitza els espais de la festa a Mataró.</p>
+</section>
+
+<!-- MAPA -->
+<div id="map"></div>
+
+<section class="espais">
+
+<h2>Espais destacats</h2>
+
+<div class="grid-espais">
+
+<div class="espai">
+<img src="img/riera.jpg">
+<h3>La Riera</h3>
+<a href="agenda.html" class="btn btn-groc">Veure activitats →</a>
+</div>
+
+<div class="espai">
+<img src="img/parc.jpg">
+<h3>Parc Central</h3>
+<a href="agenda.html" class="btn btn-groc">Veure activitats →</a>
+</div>
+
+<div class="espai">
+<img src="img/platja.jpg">
+<h3>Platja del Varador</h3>
+<a href="agenda.html" class="btn btn-groc">Veure activitats →</a>
+</div>
+
+<div class="espai">
+<img src="img/placa.jpg">
+<h3>Plaça Santa Anna</h3>
+<a href="agenda.html" class="btn btn-groc">Veure activitats →</a>
+</div>
+
+</div>
+
+</section>
+
+<section class="dubtes">
+<h2>TENS DUBTES?</h2>
+<p>Contacta amb nosaltres</p>
+<a href="#" class="btn btn-blanc">Contacta amb nosaltres</a>
+</section>
+
+</main>
+
+<footer>
+
+<div class="footer-contingut">
+
+<div>
+<h3>Les Santes</h3>
+<p>La Festa Major de Mataró. Del 24 al 29 de juliol.</p>
+</div>
+
+<div>
+<h4>Links d’interès</h4>
+<a href="#">Ajuntament de Mataró</a>
+<a href="#">Cultura Mataró</a>
+<a href="#">Protecció Civil</a>
+</div>
+
+<div>
+<h4>Xarxes Socials</h4>
+<a href="#">Twitter</a>
+<a href="#">Instagram</a>
+</div>
+
+</div>
+
+<p class="copyright">
+© 2024 Les Santes de Mataró. Tots els drets reservats.
+</p>
+
+</footer>
+
+<script src="js/script.js"></script>
+
+<!-- LEAFLET -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="js/mapa.js"></script>
+
+</body>
+</html>
