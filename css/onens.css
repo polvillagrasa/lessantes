@@ -1,56 +1,229 @@
 .onens-page {
   max-width: 1100px;
   margin: auto;
-  padding: 30px 0 60px;
+  padding: 35px 0 60px;
 }
 
-.header h1 {
+.onens-header {
+  margin-bottom: 28px;
+}
+
+.onens-header h1 {
   color: #ef3b4f;
-  font-size: 40px;
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 8px;
 }
 
-.header p {
-  color: #6b7280;
-  margin-bottom: 20px;
+.onens-header p {
+  max-width: 560px;
+  color: #374151;
+  font-size: 15px;
+}
+
+.mapa-section {
+  margin-bottom: 38px;
 }
 
 #map {
   width: 100%;
-  height: 400px;
-  border-radius: 10px;
-  margin: 30px 0;
+  height: 420px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+.espais {
+  margin-bottom: 48px;
+}
+
+.espais h2,
+.com-arribar h2 {
+  font-size: 24px;
+  color: #111827;
+  margin-bottom: 24px;
 }
 
 .grid-espais {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+  gap: 22px;
 }
 
 .espai {
   background: white;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.07);
 }
 
 .espai img {
   width: 100%;
-  height: 150px;
+  height: 145px;
   object-fit: cover;
+  display: block;
+}
+
+.espai-info {
+  padding: 15px;
+}
+
+.espai-info h3 {
+  font-size: 15px;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.espai-info p {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.espai-botons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-mini {
+  border: none;
+  border-radius: 6px;
+  padding: 9px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  background: #f3b400;
+  color: #111827;
+}
+
+.btn-link {
+  display: inline-block;
+  border-radius: 6px;
+  padding: 9px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  background: #ef3b4f;
+  color: white;
+}
+
+.com-arribar {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 35px;
+  margin-bottom: 48px;
+}
+
+.arribar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.arribar-grid article {
+  background: white;
   border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+}
+
+.arribar-icona {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: #fff0f2;
+  color: #ef3b4f;
+  margin-bottom: 14px;
+}
+
+.arribar-grid h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.arribar-grid p {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+.arribar-grid a {
+  color: #ef3b4f;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .dubtes {
-  background: #df2429;
+  width: min(100%, 560px);
+  margin: 0 auto;
+  background: #ef3348;
   color: white;
   text-align: center;
-  padding: 60px;
-  margin-top: 40px;
+  padding: 42px 35px;
+  border-radius: 8px;
+  box-shadow: 0 12px 26px rgba(239, 51, 72, 0.25);
 }
 
-@media (max-width: 900px) {
-  .grid-espais {
+.dubtes h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.dubtes p {
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+.menu .actiu {
+  color: #ef3b4f;
+}
+
+.leaflet-popup-content h3 {
+  color: #18385f;
+  margin-bottom: 6px;
+}
+
+.leaflet-popup-content p {
+  margin: 4px 0;
+}
+
+.leaflet-popup-content a {
+  display: inline-block;
+  margin-top: 8px;
+  background: #ef3b4f;
+  color: white;
+  padding: 7px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.missatge-buit {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  color: #6b7280;
+}
+
+@media (max-width: 950px) {
+  .onens-page {
+    padding: 30px 20px 60px;
+  }
+
+  .grid-espais,
+  .arribar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .grid-espais,
+  .arribar-grid {
     grid-template-columns: 1fr;
+  }
+
+  #map {
+    height: 340px;
   }
 }
