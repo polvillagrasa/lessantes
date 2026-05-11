@@ -38,11 +38,6 @@
       <label>Filtrar per acte</label>
       <select id="filtreActe">
         <option value="tots">Tots els actes</option>
-        <option value="concerts">Concerts</option>
-        <option value="gegants">Gegants</option>
-        <option value="focs">Focs</option>
-        <option value="correfoc">Correfoc</option>
-        <option value="castellers">Castellers</option>
       </select>
     </div>
 
@@ -50,12 +45,6 @@
       <label>Seleccionar data</label>
       <select id="filtreData">
         <option value="tots">Tots els dies</option>
-        <option value="24">24 Juliol</option>
-        <option value="25">25 Juliol</option>
-        <option value="26">26 Juliol</option>
-        <option value="27">27 Juliol</option>
-        <option value="28">28 Juliol</option>
-        <option value="29">29 Juliol</option>
       </select>
     </div>
 
@@ -67,87 +56,13 @@
     <button id="btnCercarGaleria" class="btn-cercar-galeria">Cercar</button>
   </section>
 
-  <section class="grid-galeria">
+  <section class="grid-galeria" id="gridGaleria"></section>
 
-    <article class="foto-card" data-acte="concerts" data-dia="24">
-      <img src="img/concerts.jpg" alt="Nit de Concerts">
-      <div class="foto-info">
-        <h3>Nit de Concerts</h3>
-        <p>▢ 24 Juliol</p>
-      </div>
-    </article>
-
-    <article class="foto-card" data-acte="gegants" data-dia="25">
-      <img src="img/gegants4.jpeg" alt="Cercavila de Gegants">
-      <div class="foto-info">
-        <h3>Cercavila de Gegants</h3>
-        <p>▢ 25 Juliol</p>
-      </div>
-    </article>
-
-    <article class="foto-card" data-acte="focs" data-dia="27">
-      <img src="img/focs.jpg" alt="Focs Artificials">
-      <div class="foto-info">
-        <h3>Focs Artificials</h3>
-        <p>▢ 27 Juliol</p>
-      </div>
-    </article>
-
-    <article class="foto-card" data-acte="correfoc" data-dia="28">
-      <img src="img/correfoc.jpg" alt="El Correfoc">
-      <div class="foto-info">
-        <h3>El Correfoc</h3>
-        <p>▢ 28 Juliol</p>
-      </div>
-    </article>
-
-    <article class="foto-card" data-acte="castellers" data-dia="26">
-      <img src="img/castellera.jpg" alt="Diada Castellera">
-      <div class="foto-info">
-        <h3>Diada Castellera</h3>
-        <p>▢ 26 Juliol</p>
-      </div>
-    </article>
-
-    <article class="foto-card" data-acte="festa" data-dia="29">
-      <img src="img/ruixada.jpg" alt="Ruixada Matinal">
-      <div class="foto-info">
-        <h3>Ruixada Matinal</h3>
-        <p>▢ 29 Juliol</p>
-      </div>
-    </article>
-
-    <article class="foto-card" data-acte="festa" data-dia="28">
-      <img src="img/menjar.jpg" alt="Ball de borratxos">
-      <div class="foto-info">
-        <h3>Ball de borratxos</h3>
-        <p>▢ 28 Juliol</p>
-      </div>
-    </article>
-
-    <article class="foto-card" data-acte="musica" data-dia="29">
-      <img src="img/musica.jpg" alt="Música als Carrers">
-      <div class="foto-info">
-        <h3>Música als Carrers</h3>
-        <p>▢ 29 Juliol</p>
-      </div>
-    </article>
-
-  </section>
-
-  <section class="paginacio">
-    <button>‹</button>
-    <button class="pagina-activa">1</button>
-    <button>2</button>
-    <button>3</button>
-    <span>...</span>
-    <button>6</button>
-    <button>›</button>
-  </section>
+  <section class="paginacio" id="paginacioGaleria"></section>
 
   <section class="arxiu">
     <h2>No trobes el que busques?</h2>
-    <a href="#" class="btn-arxiu">Cerca més Fotos a l'Arxiu ↗</a>
+    <a href="agenda.html" class="btn-arxiu">Cerca més fotos a l'agenda ↗</a>
   </section>
 
 </main>
@@ -178,6 +93,16 @@
 
   <p class="copyright">© 2024 Les Santes de Mataró. Tots els drets reservats.</p>
 </footer>
+
+<div class="modal-galeria" id="modalGaleria">
+  <button class="tancar-modal" id="tancarModal">×</button>
+  <img id="modalImg" src="" alt="">
+  <div class="modal-info">
+    <h3 id="modalTitol"></h3>
+    <p id="modalData"></p>
+    <p id="modalLloc"></p>
+  </div>
+</div>
 
 <script src="js/script.js"></script>
 <script src="js/galeria.js"></script>

@@ -44,6 +44,7 @@
   border-radius: 6px;
   padding: 0 14px;
   color: #64748b;
+  background: #fff;
 }
 
 .btn-cercar-galeria {
@@ -93,11 +94,20 @@
 .foto-info h3 {
   font-size: 16px;
   margin-bottom: 8px;
+  color: #111827;
 }
 
 .foto-info p {
   color: #ef3b4f;
   font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.foto-info small {
+  color: #64748b;
+  font-size: 12px;
+  display: block;
+  line-height: 1.3;
 }
 
 .paginacio {
@@ -106,15 +116,17 @@
   justify-content: center;
   align-items: center;
   gap: 9px;
+  flex-wrap: wrap;
 }
 
 .paginacio button {
-  width: 38px;
+  min-width: 38px;
   height: 38px;
   border: 1px solid #cbd5e1;
   background-color: white;
   border-radius: 8px;
   cursor: pointer;
+  padding: 0 12px;
 }
 
 .paginacio button:hover,
@@ -122,6 +134,11 @@
   background-color: #ef3b4f;
   color: white;
   border-color: #ef3b4f;
+}
+
+.paginacio button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .arxiu {
@@ -153,8 +170,72 @@
   color: #ef3b4f;
 }
 
-.ocult {
+.missatge-buit {
+  grid-column: 1 / -1;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  color: #6b7280;
+  text-align: center;
+}
+
+.modal-galeria {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.82);
+  z-index: 2000;
   display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.modal-galeria.actiu {
+  display: flex;
+}
+
+.modal-galeria img {
+  max-width: min(900px, 90vw);
+  max-height: 72vh;
+  border-radius: 10px;
+  object-fit: contain;
+  background: white;
+}
+
+.tancar-modal {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  border: none;
+  background: white;
+  color: #111827;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.modal-info {
+  position: absolute;
+  left: 50%;
+  bottom: 35px;
+  transform: translateX(-50%);
+  width: min(900px, 90vw);
+  background: white;
+  border-radius: 10px;
+  padding: 18px 22px;
+}
+
+.modal-info h3 {
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.modal-info p {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 3px;
 }
 
 @media (max-width: 950px) {
@@ -174,5 +255,15 @@
 @media (max-width: 560px) {
   .grid-galeria {
     grid-template-columns: 1fr;
+  }
+
+  .modal-info {
+    position: static;
+    transform: none;
+    margin-top: 15px;
+  }
+
+  .modal-galeria.actiu {
+    flex-direction: column;
   }
 }
