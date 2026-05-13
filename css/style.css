@@ -29,9 +29,14 @@ header {
 }
 
 .logo {
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 42px;
+  width: auto;
+  display: block;
 }
 
 .menu {
