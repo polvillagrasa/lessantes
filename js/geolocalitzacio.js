@@ -5,26 +5,21 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(mapGeo);
 
 const filtreDiaGeo = document.getElementById("filtreDiaGeo");
+const filtreCategoriaGeo = document.getElementById("filtreCategoriaGeo");
 const llistaActivitatsGeo = document.getElementById("llistaActivitatsGeo");
 const btnCentrar = document.getElementById("centrarMapa");
 
 let actesGeo = [];
 let marcadors = [];
+let actesFiltratsActuals = [];
 
 fetch("data/actes_santes_2025_pia.json")
   .then(resposta => resposta.json())
   .then(dades => {
     actesGeo = dades.events.filter(acte => acte.location_point);
     crearDies();
-    mostrarActivitatsMapa("tots");
-  })
-  .catch(error => {
-    llistaActivitatsGeo.innerHTML = `
-      <p class="missatge-buit">
-        No s'ha pogut carregar el JSON. Revisa la ruta data/actes_santes_2025_pia.json
-      </p>
-    `;
-    console.error(error);
+    crearCategories();
+    mostrarActivitatsMapa();
   });
 
 function obtenirDia(acte) {
@@ -33,6 +28,18 @@ function obtenirDia(acte) {
 
 function obtenirHora(acte) {
   return acte.date_initial.split(" ")[1] || "";
+}
+
+function obtenirCategoria(acte) {
+  if (acte.ambits && acte.ambits.length > 0) {
+    return acte.ambits[0].name;
+  }
+
+  if (acte.pretitle) {
+    return acte.pretitle;
+  }
+
+  return "Altres";
 }
 
 function crearDies() {
@@ -47,6 +54,18 @@ function crearDies() {
   });
 }
 
+function crearCategories() {
+  const categories = [...new Set(actesGeo.map(acte => obtenirCategoria(acte)))]
+    .sort();
+
+  categories.forEach(categoria => {
+    const option = document.createElement("option");
+    option.value = categoria;
+    option.textContent = categoria;
+    filtreCategoriaGeo.appendChild(option);
+  });
+}
+
 function netejarMarcadors() {
   marcadors.forEach(marcador => {
     mapGeo.removeLayer(marcador);
@@ -56,81 +75,109 @@ function netejarMarcadors() {
 }
 
 function crearLinkMaps(acte) {
-  const cerca = `${acte.location}, Mataró`;
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(cerca)}`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(acte.location + ", Mataró")}`;
 }
 
-function mostrarActivitatsMapa(diaSeleccionat) {
+function seleccionarActivitat(index, moureMapa = true) {
+  const acte = actesFiltratsActuals[index];
+  const marcador = marcadors[index];
+
+  if (!acte || !marcador) return;
+
+  document.querySelectorAll(".activitat").forEach(boto => {
+    boto.classList.remove("activa");
+  });
+
+  const botoSeleccionat = document.querySelector(`.activitat[data-index="${index}"]`);
+
+  if (botoSeleccionat) {
+    botoSeleccionat.classList.add("activa");
+    botoSeleccionat.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  }
+
+  if (moureMapa) {
+    mapGeo.setView(acte.location_point, 17);
+  }
+
+  marcador.openPopup();
+}
+
+function mostrarActivitatsMapa() {
   netejarMarcadors();
   llistaActivitatsGeo.innerHTML = "";
 
-  const actesFiltrats = actesGeo.filter(acte => {
-    const dia = obtenirDia(acte);
-    return diaSeleccionat === "tots" || dia === diaSeleccionat;
+  const diaSeleccionat = filtreDiaGeo.value;
+  const categoriaSeleccionada = filtreCategoriaGeo.value;
+
+  actesFiltratsActuals = actesGeo.filter(acte => {
+    const coincideixDia =
+      diaSeleccionat === "tots" || obtenirDia(acte) === diaSeleccionat;
+
+    const coincideixCategoria =
+      categoriaSeleccionada === "tots" || obtenirCategoria(acte) === categoriaSeleccionada;
+
+    return coincideixDia && coincideixCategoria;
   });
 
-  if (actesFiltrats.length === 0) {
+  if (actesFiltratsActuals.length === 0) {
     llistaActivitatsGeo.innerHTML = `
-      <p class="missatge-buit">No hi ha activitats per aquest dia.</p>
+      <p class="missatge-buit">No hi ha activitats amb aquests filtres.</p>
     `;
     return;
   }
 
   const grupMarcadors = L.featureGroup();
 
-  actesFiltrats.forEach((acte, index) => {
-    const coords = acte.location_point;
-    const urlMaps = crearLinkMaps(acte);
-
-    const marcador = L.marker(coords).addTo(mapGeo);
+  actesFiltratsActuals.forEach((acte, index) => {
+    const marcador = L.marker(acte.location_point).addTo(mapGeo);
 
     marcador.bindPopup(`
       <h3>${acte.title}</h3>
       <p><strong>${acte.location}</strong></p>
       <p>${obtenirDia(acte)} Juliol · ${obtenirHora(acte)}h</p>
-      <a href="${urlMaps}" target="_blank">Com arribar-hi</a>
+      <p>${obtenirCategoria(acte)}</p>
+      <a href="${crearLinkMaps(acte)}" target="_blank">Com arribar-hi</a>
     `);
+
+    marcador.on("click", () => {
+      seleccionarActivitat(index, false);
+    });
 
     marcadors.push(marcador);
     grupMarcadors.addLayer(marcador);
 
     const boto = document.createElement("button");
     boto.className = "activitat";
+    boto.dataset.index = index;
 
     boto.innerHTML = `
       <strong>${acte.title}</strong>
       <small>${obtenirHora(acte)}h · ${acte.location}</small>
+      <small>${obtenirCategoria(acte)}</small>
     `;
 
     boto.addEventListener("click", () => {
-      mapGeo.setView(coords, 17);
-      marcador.openPopup();
-
-      document.querySelectorAll(".activitat").forEach(b => b.classList.remove("activa"));
-      boto.classList.add("activa");
+      seleccionarActivitat(index, true);
     });
 
     llistaActivitatsGeo.appendChild(boto);
-
-    if (index === 0) {
-      boto.classList.add("activa");
-      marcador.openPopup();
-    }
   });
 
-  if (actesFiltrats.length === 1) {
-    mapGeo.setView(actesFiltrats[0].location_point, 16);
+  if (actesFiltratsActuals.length === 1) {
+    mapGeo.setView(actesFiltratsActuals[0].location_point, 16);
   } else {
     mapGeo.fitBounds(grupMarcadors.getBounds(), {
       padding: [40, 40]
     });
   }
+
+  seleccionarActivitat(0, false);
 }
 
-filtreDiaGeo.addEventListener("change", () => {
-  mostrarActivitatsMapa(filtreDiaGeo.value);
-});
+filtreDiaGeo.addEventListener("change", mostrarActivitatsMapa);
+filtreCategoriaGeo.addEventListener("change", mostrarActivitatsMapa);
 
-btnCentrar.addEventListener("click", () => {
-  mostrarActivitatsMapa(filtreDiaGeo.value);
-});
+btnCentrar.addEventListener("click", mostrarActivitatsMapa);
