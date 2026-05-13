@@ -298,3 +298,17 @@ footer a {
     padding: 0 20px;
   }
 }
+
+.menu li:last-child a {
+  background: #ef3b4f;
+  color: white !important;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 800;
+  transition: 0.2s;
+}
+
+.menu li:last-child a:hover {
+  background: #d92f42;
+  transform: translateY(-1px);
+}
