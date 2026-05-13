@@ -1,165 +1,102 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MiniSantes | Les Santes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniSantes | Joc dels Gegants</title>
 
-<link rel="icon" type="image/jpg" href="img/buscador.jpg">
-
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/minisantes.css">
+  <link rel="icon" type="image/jpg" href="img/buscador.jpg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/minisantes.css">
 </head>
 <body>
 
 <header>
-<nav class="navbar">
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <img src="img/logo.svg" alt="Logo Les Santes">
+    </a>
 
-<a href="index.html" class="logo">
-  <img src="img/logo.svg" alt="Logo Les Santes">
-</a>
+    <button class="menu-btn" id="menuBtn">☰</button>
 
-<button class="menu-btn" id="menuBtn">☰</button>
-
-<ul class="menu" id="menu">
-<li><a href="agenda.html">Agenda d'actes</a></li>
-<li><a href="minisantes.html" class="actiu">MiniSantes</a></li>
-<li><a href="galeria.html">Galeria de fotos i imatges</a></li>
-<li><a href="on-ens-trobem.html">On ens trobem</a></li>
-<li><a href="geolocalitzacio.html">Geolocalització</a></li>
-</ul>
-
-</nav>
+    <ul class="menu" id="menu">
+      <li><a href="agenda.html">Agenda d'actes</a></li>
+      <li><a href="minisantes.html" class="actiu">MiniSantes</a></li>
+      <li><a href="galeria.html">Galeria de fotos i imatges</a></li>
+      <li><a href="on-ens-trobem.html">On ens trobem</a></li>
+      <li><a href="geolocalitzacio.html">Geolocalització</a></li>
+    </ul>
+  </nav>
 </header>
 
-<main>
+<main class="minisantes-page">
 
-<section class="hero-mini">
+  <section class="mini-hero">
+    <div>
+      <h1>MiniSantes</h1>
+      <h2>Joc dels Gegants i Figures</h2>
+      <p>
+        Mira bé cada imatge i relaciona-la amb el seu nom. Primer toca una foto
+        i després toca el nom que creus que li correspon. Si encertes, quedarà marcat en verd!
+      </p>
+      <button id="reiniciarJoc" class="btn-joc">Tornar a començar</button>
+    </div>
 
-<div class="hero-text">
+    <div class="marcador">
+      <span>Encerts</span>
+      <strong id="encerts">0</strong>
+      <small>de 8</small>
+    </div>
+  </section>
 
-<h1>MiniSantes</h1>
+  <section class="joc-box">
 
-<h2>La Festa Major de Mataró per als més petits!</h2>
+    <div class="columna">
+      <h3>1. Tria una imatge</h3>
+      <div class="imatges-grid" id="imatgesGrid"></div>
+    </div>
 
-<p>
-Tarda de somriures, balls i tradició. El cor de Mataró batega amb
-l'energia dels infants amb tallers, cercaviles i activitats familiars
-pensades per viure la màgia de Les Santes des de ben d'hora.
-</p>
+    <div class="columna">
+      <h3>2. Tria el seu nom</h3>
+      <div class="noms-grid" id="nomsGrid"></div>
+    </div>
 
-<a href="agenda.html" class="btn btn-groc">Agenda d'actes</a>
+  </section>
 
-</div>
-
-<div class="hero-img">
-<img src="img/minisantes.jpeg" alt="Mini Santes">
-</div>
-
-</section>
-
-<section class="activitats">
-
-<div class="titol-section">
-<h2>Properes activitats</h2>
-<a href="agenda.html">Veure tot ›</a>
-</div>
-
-<div class="cards">
-
-<article class="card">
-<a href="agenda.html">
-<img src="img/gegants3.jpeg">
-<span class="categoria verd">Cultura popular</span>
-
-<div class="card-info">
-<h3>Cercavila de Gegants</h3>
-<p>◷ 25 de juliol · 18:00h</p>
-<p>◎ Riera de Mataró</p>
-</div>
-</a>
-</article>
-
-<article class="card">
-<a href="agenda.html">
-<img src="img/bastons.jpeg">
-<span class="categoria verd">Cultura popular</span>
-
-<div class="card-info">
-<h3>Ball de Bastons</h3>
-<p>◷ 27 de juliol · 12:00h</p>
-<p>◎ Ajuntament</p>
-</div>
-</a>
-</article>
-
-<article class="card">
-<a href="agenda.html">
-<img src="img/correfoc3.jpeg">
-<span class="categoria verd">Cultura popular</span>
-
-<div class="card-info">
-<h3>Correfoc infantil</h3>
-<p>◷ 28 de juliol · 21:30h</p>
-<p>◎ Ajuntament</p>
-</div>
-</a>
-</article>
-
-</div>
-
-</section>
-
-<section class="participa">
-
-<h2>PARTICIPA A LES SANTES!</h2>
-
-<p>
-Uneix-te a la celebració més gran de Mataró.
-Comparteix els teus moments amb l’etiqueta
-#LesSantes2026 i sigues part de la història.
-</p>
-
-<a href="agenda.html" class="btn btn-blanc">Saber-ne més</a>
-
-</section>
+  <section class="missatge" id="missatgeJoc">
+    <p>Comença triant una foto 👀</p>
+  </section>
 
 </main>
 
 <footer>
+  <div class="footer-contingut">
+    <div>
+      <h3>Les Santes</h3>
+      <p>
+        La Festa Major de Mataró, declarada Festa de patrimoni d’interès nacional.
+        Del 24 al 29 de juliol.
+      </p>
+    </div>
 
-<div class="footer-contingut">
+    <div>
+      <h4>Links d’interès</h4>
+      <a href="#">Ajuntament de Mataró</a>
+      <a href="#">Cultura Mataró</a>
+      <a href="#">Protecció Civil</a>
+    </div>
 
-<div>
-<h3>Les Santes</h3>
-<p>
-La Festa Major de Mataró, declarada Festa de patrimoni
-d’interès nacional. Del 24 al 29 de juliol.
-</p>
-</div>
+    <div>
+      <h4>Xarxes Socials</h4>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
 
-<div>
-<h4>Links d’interès</h4>
-<a href="#">Ajuntament de Mataró</a>
-<a href="#">Cultura Mataró</a>
-<a href="#">Protecció Civil</a>
-</div>
-
-<div>
-<h4>Xarxes Socials</h4>
-<a href="#">Twitter</a>
-<a href="#">Instagram</a>
-</div>
-
-</div>
-
-<p class="copyright">
-© 2024 Les Santes de Mataró. Tots els drets reservats.
-</p>
-
+  <p class="copyright">© 2024 Les Santes de Mataró. Tots els drets reservats.</p>
 </footer>
 
 <script src="js/script.js"></script>
-
+<script src="js/minisantes.js"></script>
 </body>
 </html>
